@@ -1,0 +1,78 @@
+@import "../../../../styles/var.common.scss";
+
+.remove-modal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+  min-height: 125px;
+  background-color: $white;
+  padding: 22px 13px 29px 13px;
+
+  @media screen and (min-width: 768px) {
+    width: 450px;
+  }
+
+  &__cross {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+
+    @media screen and (min-width: 768px) {
+      top: 17px;
+      right: 14px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    right: 10px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+    text-align: center;
+    letter-spacing: 0.015em;
+    width: 275px;
+    margin-bottom: 24px;
+  }
+
+  &__btns {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__cancel {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    text-decoration: underline;
+    width: max-content;
+    transition: color 0.3s ease-in-out, outline 0.3s ease-in-out;
+
+    &:hover {
+      color: $firm98;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $firm80;
+      outline-offset: 2px;
+      color: $firm80;
+    }
+
+    &:active {
+      color: $firm80;
+    }
+  }
+}

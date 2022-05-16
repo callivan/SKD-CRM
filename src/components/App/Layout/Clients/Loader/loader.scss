@@ -1,0 +1,56 @@
+@import "../../../../../styles/var.common.scss";
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  background-color: $white;
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    fill: none;
+    animation: rotate 3s infinite linear;
+
+    @media screen and (min-width: 1025px) {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  &__circle {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
+    stroke-miterlimit: 10;
+    stroke-linecap: round;
+    stroke-width: 2;
+    stroke: $firm98;
+    animation: circle-paint 2s infinite linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circle-paint {
+  0% {
+    stroke-dashoffset: 70;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -70;
+  }
+}

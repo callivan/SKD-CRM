@@ -1,0 +1,28 @@
+@import "../../../../styles/var.common.scss";
+
+.cross-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 29px;
+
+  & > span {
+    position: absolute;
+    width: 69%;
+    height: 1px;
+    background-color: $greyB0;
+    transform: scaleX(0);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  &:hover > span,
+  &:focus-visible > span {
+    background-color: $redEF;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}

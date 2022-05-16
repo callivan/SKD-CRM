@@ -1,0 +1,33 @@
+@import "../../../../../styles/var.common.scss";
+
+@mixin font {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+}
+
+.search {
+  @include font;
+  display: flex;
+  align-items: center;
+  width: 581px;
+  height: 44px;
+  box-shadow: inset 0 0 0 1px $greyD6;
+  color: $black33;
+  padding-inline: 16px;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &::placeholder {
+    @include font;
+    color: $greyB0;
+  }
+
+  &:hover {
+    box-shadow: inset 0 0 0 1px $firmB8;
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 1px $firmB8;
+  }
+}

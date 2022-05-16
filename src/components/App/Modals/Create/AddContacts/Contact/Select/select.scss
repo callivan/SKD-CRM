@@ -1,0 +1,106 @@
+@import "../../../../../../../styles/var.common.scss";
+
+@mixin select-font {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+
+  &__btn {
+    display: flex;
+    width: 110px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $greyEB;
+    box-shadow: inset 0 0 0 1px $greyC8;
+    padding: 10px 8px 10px 12px;
+  }
+
+  &__btn-text {
+    @include select-font;
+    pointer-events: none;
+  }
+
+  &__btn-arrow {
+    pointer-events: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 7px;
+      width: 2px;
+      background-color: $firm98;
+      border-radius: 30%;
+      transform-origin: bottom center;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__list {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 110px;
+    background-color: $greyF6;
+    border: 1px solid $greyC8;
+    border-top: none;
+    transform-origin: top center;
+    transform: translateY(100%) scaleY(0);
+    overflow: hidden;
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateX(-50px);
+
+    &.active {
+      display: none;
+    }
+  }
+
+  &__item-btn {
+    @include select-font;
+    text-align: left;
+    width: 100%;
+    padding-block: 5px;
+    padding-inline: 12px 19px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $greyEB;
+    }
+
+    &:focus-visible {
+      outline: none;
+      background-color: $firm98;
+      color: $white;
+    }
+
+    &:active {
+      background-color: $greyB0;
+      color: $white;
+    }
+  }
+}

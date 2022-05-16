@@ -1,0 +1,154 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Скворцов Денис Юрьевич",
+      "created": {
+        "date": "2021-02-21",
+        "time": "12:41"
+      },
+      "changed": {
+        "date": "2021-02-21",
+        "time": "14:50"
+      },
+      "social": [
+        {
+          "type": "vk",
+          "data": "@id294739275"
+        },
+        {
+          "type": "fb",
+          "data": "@den"
+        },
+        {
+          "type": "phone",
+          "data": "+79231223445"
+        },
+        {
+          "type": "email",
+          "data": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Куприянов Арсений Валерьевич",
+      "created": {
+        "date": "2021-01-28",
+        "time": "16:40"
+      },
+      "changed": {
+        "date": "2021-02-02",
+        "time": "17:01"
+      },
+      "social": [
+        {
+          "type": "vk",
+          "data": "@id294739275"
+        },
+        {
+          "type": "fb",
+          "data": ""
+        },
+        {
+          "type": "phone",
+          "data": "+79231223445"
+        },
+        {
+          "type": "email",
+          "data": "ars@mail.ru"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Константинопольская Людмила Александровна",
+      "created": {
+        "date": "2021-01-20",
+        "time": "14:01"
+      },
+      "changed": {
+        "date": "2021-01-21",
+        "time": "14:59"
+      },
+      "social": [
+        {
+          "type": "vk",
+          "data": "@id294739275"
+        },
+        {
+          "type": "fb",
+          "data": ""
+        },
+        {
+          "type": "phone",
+          "data": "+79231223445"
+        },
+        {
+          "type": "email",
+          "data": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Дмитриевский Олег Алексеевич",
+      "created": {
+        "date": "2021-01-14",
+        "time": "16:50"
+      },
+      "changed": {
+        "date": "2021-01-18",
+        "time": "16:55"
+      },
+      "social": [
+        {
+          "type": "vk",
+          "data": "@id294739275"
+        },
+        {
+          "type": "fb",
+          "data": "@den"
+        },
+        {
+          "type": "phone",
+          "data": ""
+        },
+        {
+          "type": "email",
+          "data": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Александрова Татьяна Павловна",
+      "created": {
+        "date": "2021-01-11",
+        "time": "12:45"
+      },
+      "changed": {
+        "date": "2021-01-11",
+        "time": "14:11"
+      },
+      "social": [
+        {
+          "type": "vk",
+          "data": "@id294739275"
+        },
+        {
+          "type": "fb",
+          "data": "@den"
+        },
+        {
+          "type": "phone",
+          "data": "+79231223445"
+        },
+        {
+          "type": "email",
+          "data": "tat@mail.ru"
+        }
+      ]
+    }
+  ]
+}

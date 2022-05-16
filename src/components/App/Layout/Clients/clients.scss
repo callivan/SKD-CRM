@@ -1,0 +1,69 @@
+@import "../../../../styles/var.common.scss";
+
+.clients {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 1186px;
+  min-width: 320px;
+  padding-block: 30px;
+  padding-inline: 10px 10px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    padding-block: 41px;
+    padding-inline: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-inline: 0px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    width: max-content;
+    margin-bottom: 6px;
+    opacity: 0;
+    transform: translateY(-50px);
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.4rem;
+      line-height: 3.2rem;
+      margin-bottom: 12px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    overflow-x: scroll;
+
+    @media screen and (min-width: 738px) {
+      overflow-x: visible;
+    }
+  }
+
+  &__filter {
+    margin-bottom: 8px;
+  }
+
+  &__add-btn {
+    position: relative;
+    right: 5px;
+    align-self: center;
+    width: max-content;
+    opacity: 0;
+    transform: translateY(50px);
+
+    @media screen and (min-width: 768px) {
+      right: 0;
+    }
+  }
+}

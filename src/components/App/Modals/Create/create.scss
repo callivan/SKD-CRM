@@ -1,0 +1,90 @@
+@import "../../../../styles/var.common.scss";
+
+.create-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  width: 300px;
+  min-height: 300px;
+  padding-block: 24px 30px;
+
+  @media screen and (min-width: 768px) {
+    width: 450px;
+  }
+
+  @media screen and (min-width: 1366px) {
+    padding-block: 24px 26px;
+  }
+
+  &__cross {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+
+    @media screen and (min-width: 768px) {
+      top: 15px;
+      right: 15px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    padding-inline: 15px;
+
+    @media screen and (min-width: 768px) {
+      padding-inline: 30px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    gap: 9px;
+    align-items: baseline;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+
+  &__id {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: $greyB0;
+  }
+
+  &__contacts {
+    margin-bottom: 25px;
+  }
+
+  &__btns {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__btn-remove {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    text-decoration: underline;
+    transition: color 0.3s ease-in-out, outline 0.3s ease-in-out;
+
+    &:hover {
+      color: $firm98;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $firm80;
+      outline-offset: 2px;
+      color: $firm80;
+    }
+
+    &:active {
+      color: $firm80;
+    }
+  }
+}
