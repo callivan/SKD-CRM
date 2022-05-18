@@ -2,33 +2,31 @@ import React, { useEffect } from "react";
 
 import { useSelector } from "react-redux";
 import { StateType } from "../../store/rootTypes";
-import { UsersActionType } from "../../store/users/types";
-
-import { useNavigate } from "react-router-dom";
 
 import { AppComponent } from "./AppComponent";
 
-import { loaderHide } from "./Layout/Clients/Loader/animations/hide";
-
 export function App() {
-  const navigate = useNavigate();
-  const data = useSelector<StateType, UsersActionType>((state) => state.users);
+  const loading = useSelector<StateType, boolean>(
+    (state) => state.users.loading
+  );
 
   useEffect(() => {
-    
-    if (!data.loading && !data.error) {
-      const loaderAnimation = async () => {
-        await loaderHide();
-        navigate("users");
-      };
+    const buttons = document.querySelectorAll("button");
+    const inputs = document.querySelectorAll("input");
+    const links = document.querySelectorAll("a");
 
-      loaderAnimation();
+    if (loading) {
+      document.body.classList.add("loading");
+      buttons.forEach((button) => button.setAttribute("disabled", ""));
+      inputs.forEach((input) => input.setAttribute("disabled", ""));
+      links.forEach((link) => link.setAttribute("data-attr-disabled", ""));
+    } else {
+      document.body.classList.remove("loading");
+      buttons.forEach((button) => button.removeAttribute("disabled"));
+      inputs.forEach((input) => input.removeAttribute("disabled"));
+      links.forEach((link) => link.removeAttribute("data-attr-disabled"));
     }
+  }, [loading]);
 
-    if (data.error) {
-      navigate("error");
-    }
-  }, [data]);
-
-  return <AppComponent />;
+  return <AppComponent loading={loading} />;
 }

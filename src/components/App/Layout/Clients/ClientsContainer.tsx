@@ -1,6 +1,6 @@
-import React, { ReactNode, useLayoutEffect } from "react";
+import React, { ReactNode } from "react";
 
-import { clientsShow } from "./animation/show";
+import { useNavigate } from "react-router-dom";
 
 import { ClientsComponent } from "./ClientsComponent";
 
@@ -8,10 +8,21 @@ interface IClientsProps {
   children?: ReactNode;
 }
 
-export function Clients({ children }: IClientsProps) {
-  useLayoutEffect(() => {
-    clientsShow();
-  }, []);
+export const Clients = React.memo(function Clients({
+  children,
+}: IClientsProps) {
+  const navigate = useNavigate();
 
-  return <ClientsComponent children={children} />;
-}
+  function HandleClick() {
+    navigate("create");
+  }
+
+  return (
+    <ClientsComponent
+      children={children}
+      addBtnEvent={{
+        onClick: () => HandleClick(),
+      }}
+    />
+  );
+});

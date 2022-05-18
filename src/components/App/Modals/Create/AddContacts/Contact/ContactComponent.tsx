@@ -10,14 +10,17 @@ interface IContacComponentProps {
 
 export function ContactComponent({ className }: IContacComponentProps) {
   return (
-    <div className={styles["contact"]}>
+    <div className={[styles["contact"], className].join(" ")}>
       <Select className={styles["contact__select"]} />
       <input
         className={styles["contact__input"]}
         type="text"
         placeholder="Введите данные"
       />
-      <button className={styles["contact__btn-close"]}>
+      <button
+        className={styles["contact__btn-close"]}
+        aria-label="Удалить контакт"
+      >
         <span className={styles["contact__btn-cross"]}>
           <span></span>
           <span></span>

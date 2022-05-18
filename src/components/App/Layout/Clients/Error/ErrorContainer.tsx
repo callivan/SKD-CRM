@@ -1,4 +1,5 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
 
 import { useSelector } from "react-redux";
 import { StateType } from "../../../../../store/rootTypes";
@@ -7,30 +8,37 @@ import { useNavigate } from "react-router-dom";
 
 import { ErrorComponent } from "./ErrorComponent";
 
-import { errorShow } from "./animation/show";
-
-interface IErrorProps {
-  className?: string;
-}
-
-export function Error({ className }: IErrorProps) {
-  const navigate = useNavigate();
-  const message = useSelector<StateType, string | null>(
+export function Error() {
+  const modalPortal = document.querySelector("#react-modal");
+  const error = useSelector<StateType, string | null>(
     (state) => state.users.error
   );
+  const message = error || "Что-то пошло не так...";
+  const navigate = useNavigate();
 
-  useLayoutEffect(() => {
-    if (!message) return;
-    errorShow();
-  }, []);
+  if (!modalPortal) return null;
 
   useEffect(() => {
-    if (!message) {
+    console.log("error");
+    const errorBtn = document.querySelector(".error__btn");
+
+    if (!errorBtn || !(errorBtn instanceof HTMLElement)) return;
+
+    function errorCloseHandle() {
       navigate("/", { replace: true });
     }
+
+    document.body.classList.add("open");
+    errorBtn.addEventListener("click", errorCloseHandle);
+
+    return () => {
+      document.body.classList.remove("open");
+      errorBtn.removeEventListener("click", errorCloseHandle);
+    };
   }, []);
 
-  if (!message) return null;
-
-  return <ErrorComponent message={message} className={className} />;
+  return ReactDOM.createPortal(
+    <ErrorComponent message={message} />,
+    modalPortal
+  );
 }

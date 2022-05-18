@@ -1,7 +1,4 @@
-import React, { useLayoutEffect } from "react";
-
-import { crossHide } from "./animation/hide";
-import { crossShow } from "./animation/show";
+import React from "react";
 
 import styles from "./cross.scss";
 
@@ -13,14 +10,6 @@ interface ICrossProps {
 }
 
 export function Cross({ className, dataAttr, event, ariaLabel }: ICrossProps) {
-  useLayoutEffect(() => {
-    crossShow();
-
-    return () => {
-      crossHide();
-    };
-  }, []);
-
   return (
     <button
       className={[styles["cross-btn"], className].join(" ")}

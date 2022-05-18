@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 
 import { BrowserRouter } from "react-router-dom";
@@ -27,7 +27,9 @@ window.addEventListener("load", () => {
   root.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <Suspense>
+          <App />
+        </Suspense>
       </BrowserRouter>
     </Provider>
   );

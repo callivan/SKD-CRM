@@ -1,23 +1,29 @@
 import React, { Suspense } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { UserDataType } from "../../../../../../store/users/types";
 
 import styles from "./user.scss";
 
 const Social = React.lazy(() => import("./Social"));
 
-interface IUserProps {
+interface IUserComponentProps {
   user: UserDataType;
 }
 
-export function User({ user }: IUserProps) {
+export function UserComponent({ user }: IUserComponentProps) {
+  const navigate = useNavigate();
+
   return (
     <ul className={styles["user"]}>
       <li key={"id"} className={styles["user__column"]}>
         <span className={styles["user__id"]}>{user.id}</span>
       </li>
       <li key={"name"} className={styles["user__column"]}>
-        <span className={styles["user__name"]}>{user.name}</span>
+        <span
+          className={styles["user__name"]}
+        >{`${user.surname} ${user.name} ${user.patronymic}`}</span>
       </li>
       <li key={"date-add"} className={styles["user__column"]}>
         <span className={styles["user__date"]}>
@@ -38,6 +44,9 @@ export function User({ user }: IUserProps) {
         <button
           className={styles["user__btn-change"]}
           aria-label="Изменить данные клиента"
+          onClick={() => {
+            navigate(`change/${user.id}`);
+          }}
         >
           <svg
             className={styles["user__pen-icon"]}
@@ -54,6 +63,9 @@ export function User({ user }: IUserProps) {
         <button
           className={styles["user__btn-remove"]}
           aria-label="Удалить данные клиента"
+          onClick={() => {
+            navigate(`remove/${user.id}`);
+          }}
         >
           <svg
             className={styles["user__cross-icon"]}

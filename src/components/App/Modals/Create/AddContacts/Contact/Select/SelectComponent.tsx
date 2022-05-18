@@ -3,12 +3,14 @@ import React from "react";
 import styles from "./select.scss";
 
 interface ISelecComponentProps {
+  isOpen: boolean;
   activeField: string;
   onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   className?: string;
 }
 
 export function SelectComponent({
+  isOpen,
   activeField,
   onClick,
   className,
@@ -30,6 +32,7 @@ export function SelectComponent({
           <button
             className={styles["select__item-btn"]}
             aria-label="Добавить телефон"
+            tabIndex={isOpen ? 0 : -1}
           >
             Телефон
           </button>
@@ -38,6 +41,7 @@ export function SelectComponent({
           <button
             className={styles["select__item-btn"]}
             aria-label="Добавить дополнительный телефон"
+            tabIndex={isOpen ? 0 : -1}
           >
             Доп.телефон
           </button>
@@ -46,6 +50,7 @@ export function SelectComponent({
           <button
             className={styles["select__item-btn"]}
             aria-label="Добавить электронную почту"
+            tabIndex={isOpen ? 0 : -1}
           >
             Email
           </button>
@@ -54,6 +59,7 @@ export function SelectComponent({
           <button
             className={styles["select__item-btn"]}
             aria-label="Добавить социальную сеть вконтакте"
+            tabIndex={isOpen ? 0 : -1}
           >
             Vk
           </button>
@@ -62,6 +68,7 @@ export function SelectComponent({
           <button
             className={styles["select__item-btn"]}
             aria-label="Добавить социальную сеть facebook"
+            tabIndex={isOpen ? 0 : -1}
           >
             Facebook
           </button>
@@ -70,6 +77,7 @@ export function SelectComponent({
           <button
             className={styles["select__item-btn"]}
             aria-label="Добавить другие контактные данные"
+            tabIndex={isOpen ? 0 : -1}
           >
             Другое
           </button>

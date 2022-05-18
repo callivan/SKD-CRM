@@ -21,11 +21,17 @@
     background-color: $greyEB;
     box-shadow: inset 0 0 0 1px $greyC8;
     padding: 10px 8px 10px 12px;
+    transition: background-color 0.3s ease-in-out;
+
+    @media screen and (min-width: 768px) {
+      width: 123px;
+    }
   }
 
   &__btn-text {
     @include select-font;
     pointer-events: none;
+    transition: color 0.3s ease-in-out;
   }
 
   &__btn-arrow {
@@ -46,6 +52,7 @@
       background-color: $firm98;
       border-radius: 30%;
       transform-origin: bottom center;
+      transition: background-color 0.3s ease-in-out;
     }
 
     &::before {
@@ -102,5 +109,32 @@
       background-color: $greyB0;
       color: $white;
     }
+  }
+
+  &__btn:hover {
+    background-color: $firm98;
+  }
+
+  &__btn:hover > &__btn-text {
+    color: $white;
+  }
+
+  &__btn:hover > &__btn-arrow::before,
+  &__btn:hover > &__btn-arrow::after {
+    background-color: $white;
+  }
+
+  &__btn:focus-visible {
+    outline: none;
+    background-color: $firm98;
+  }
+
+  &__btn:focus-visible > &__btn-text {
+    color: $white;
+  }
+
+  &__btn:focus-visible > &__btn-arrow::before,
+  &__btn:focus-visible > &__btn-arrow::after {
+    background-color: $white;
   }
 }

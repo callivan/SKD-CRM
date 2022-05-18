@@ -59,6 +59,12 @@
     transform: translateY(-20px);
   }
 
+  &__input[data-noempty="true"] + &__placeholder {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    transform: translateY(-20px);
+  }
+
   &__input.invalid {
     border-color: $redF7;
   }

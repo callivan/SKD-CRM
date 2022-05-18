@@ -17,6 +17,10 @@
   padding-inline: 16px;
   transition: box-shadow 0.3s ease-in-out;
 
+  &:disabled {
+    pointer-events: none;
+  }
+
   &::placeholder {
     @include font;
     color: $greyB0;

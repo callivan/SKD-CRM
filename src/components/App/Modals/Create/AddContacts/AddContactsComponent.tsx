@@ -1,7 +1,5 @@
 import React from "react";
 
-import Contact from "./Contact";
-
 import styles from "./addcontacts.scss";
 
 interface IAddContactsComponentProps {
@@ -13,7 +11,6 @@ export function AddContactsComponent({
 }: IAddContactsComponentProps) {
   return (
     <div className={[styles["add-contacts"], className].join(" ")}>
-      <Contact/>
       <button
         className={styles["add-contacts__btn"]}
         aria-label="Добавить контакт клиента"

@@ -9,7 +9,6 @@
   box-shadow: 0px 9.03012px 27.0904px #b0bec552,
     0px 3.38629px 5.64383px #b0bec552;
   transform-origin: top;
-  transform: scaleY(0);
   padding-block: 8px;
   padding-inline: 20px;
 
@@ -24,8 +23,6 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    opacity: 0;
-    transform: translateX(-50px);
 
     &::after {
       content: "";
@@ -39,6 +36,14 @@
 
     & > svg > circle {
       transition: fill 0.3s ease-in-out;
+    }
+
+    &[data-attr-disabled] {
+      pointer-events: none;
+    }
+
+    &[data-attr-disabled] > svg > circle {
+      fill: $greyD1;
     }
 
     &:hover > svg > circle {
@@ -61,10 +66,5 @@
       width: 50px;
       height: 50px;
     }
-  }
-
-  &__search {
-    opacity: 0;
-    transform: translateX(50px);
   }
 }

@@ -32,7 +32,7 @@ export const getUsers =
   (): ThunkAction<void, any, any, UsersActionsTypes> => async (dispatch) => {
     try {
       dispatch(usersRequest());
-      const data = await fetch(" http://localhost:3001/users");
+      const data = await fetch("http://localhost:3001/users");
 
       if (data.status !== 200) {
         throw new Error(`Не удалось получить данные с ресурса: ${data.url}`);
@@ -48,6 +48,8 @@ export const getUsers =
           return {
             id: user.id,
             name: user.name,
+            surname: user.surname,
+            patronymic: user.patronymic,
             created: { date: user.created.date, time: user.created.time },
             changed: { date: user.changed.date, time: user.changed.time },
             social: user.social,
@@ -56,6 +58,40 @@ export const getUsers =
         .sort((a, b) => a.id - b.id);
 
       dispatch(usersRequestSucces(users));
+    } catch (err: any) {
+      dispatch(usesrRequestError(err.message));
+    }
+  };
+
+export const deleteUser =
+  (user: UserDataType): ThunkAction<void, any, any, UsersActionsTypes> =>
+  async (dispatch) => {
+    try {
+      await fetch(`http://localhost:3001/users/${user.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(user),
+      });
+      getUsers();
+    } catch (err: any) {
+      dispatch(usesrRequestError(err.message));
+    }
+  };
+
+export const patchUser =
+  (user: UserDataType): ThunkAction<void, any, any, UsersActionsTypes> =>
+  async (dispatch) => {
+    try {
+      await fetch(`http://localhost:3001/users/${user.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(user),
+      });
+      getUsers();
     } catch (err: any) {
       dispatch(usesrRequestError(err.message));
     }

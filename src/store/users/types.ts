@@ -10,6 +10,8 @@ export type SocialType = {
 export type UserDataType = {
   id: number;
   name: string;
+  surname: string;
+  patronymic: string;
   created: {
     date: Date;
     time: string;
@@ -44,4 +46,4 @@ export type UsersRequestSuccessType = {
 export type UsersActionsTypes =
   | UsersRequestType
   | UsersRequestErrorType
-  | UsersRequestSuccessType;
+  | UsersRequestSuccessType

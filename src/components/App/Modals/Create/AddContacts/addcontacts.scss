@@ -7,6 +7,20 @@
   width: 100%;
   background-color: $greyF6;
   padding-block: 8px;
+  padding-inline: 15px;
+  transition: padding 0.3s ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    padding-inline: 30px;
+  }
+
+  &.add {
+    padding-block: 25px;
+  }
+
+  &__contact {
+    margin-bottom: 26px;
+  }
 
   &__btn {
     display: flex;

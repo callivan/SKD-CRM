@@ -7,7 +7,7 @@
   background-color: $white;
   width: 300px;
   min-height: 300px;
-  padding-block: 24px 30px;
+  padding-block: 24px 27px;
 
   @media screen and (min-width: 768px) {
     width: 450px;
@@ -66,7 +66,7 @@
     flex-direction: column;
   }
 
-  &__btn-remove {
+  &__btn-cancel {
     font-weight: 400;
     font-size: 1.2rem;
     line-height: 1.6rem;

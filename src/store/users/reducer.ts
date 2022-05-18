@@ -23,7 +23,12 @@ export const usersReducer: Reducer<UsersActionType, UsersActionsTypes> = (
     case USERS_REQUEST_ERROR:
       return { ...state, loading: false, error: action.error };
     case USERS_REQUEST_SUCCESS:
-      return { loading: false, error: null, data: action.data };
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        data: action.data,
+      };
     default:
       return state;
   }

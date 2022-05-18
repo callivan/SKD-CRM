@@ -24,7 +24,7 @@ export function ModalRemoveComponent({
       </span>
       <div className={styles["remove-modal__btns"]}>
         <Action
-          className={styles["remove-modal__remove"]}
+          className="remove-modal__remove"
           children="Удалить"
           ariaLabel="Подтвердить удаление клиента"
         />

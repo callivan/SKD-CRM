@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -7,51 +7,21 @@ import { Layout } from "./Layout";
 import "../../styles/normalize.common.scss";
 import "../../styles/fonts.common.scss";
 import "../../styles/styles.common.scss";
-import styles from "./app.scss";
 
-const Loader = React.lazy(() => import("./Layout/Clients/Loader"));
-const Error = React.lazy(() => import("./Layout/Clients/Error"));
-const Users = React.lazy(() => import("./Layout/Clients/Users"));
-const ModalRemove = React.lazy(() => import("./Modals/Remove"));
 const ModalCreate = React.lazy(() => import("./Modals/Create"));
+const ModalRemove = React.lazy(() => import("./Modals/Remove"));
+const Error = React.lazy(() => import("./Layout/Clients/Error"));
 
-export function AppComponent() {
+export function AppComponent({ loading }: { loading: boolean }) {
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route
-            index
-            element={
-              <Suspense>
-                <Loader />
-              </Suspense>
-            }
-          />
-          {/* <Route
-            path="users/"
-            element={
-              <Suspense>
-                <Users />
-              </Suspense>
-            }
-          /> */}
-          <Route
-            path="users/"
-            element={
-              <Suspense>
-                <ModalCreate />
-              </Suspense>
-            }
-          />
-          <Route
-            path="error"
-            element={
-              <Suspense>
-                <Error />
-              </Suspense>
-            }
-          />
+          <Route path={"create"} element={!loading && <ModalCreate />} />
+          <Route path={"change/:id"} element={!loading && <ModalCreate />} />
+          <Route path="remove/:id" element={!loading && <ModalRemove />} />
+          <Route path={"error"} element={!loading && <Error />} />
+          <Route path={"*"} element={!loading && <Error />} />
         </Route>
       </Routes>
     </>

@@ -1,7 +1,8 @@
 import React from "react";
 
 import { UserDataType } from "../../../../../store/users/types";
-import { User } from "./User/User";
+
+import { User } from "./User/UserContainer";
 
 import styles from "./users.scss";
 

@@ -3,20 +3,24 @@ import React from "react";
 import styles from "./filter.scss";
 
 interface IFilterComponentProps {
+  onClick: (e: React.MouseEvent<HTMLUListElement, MouseEvent>) => void;
   className?: string;
 }
 
-export function FilterComponent({ className }: IFilterComponentProps) {
+export function FilterComponent({ onClick, className }: IFilterComponentProps) {
   return (
-    <ul className={[styles["filter"], className].join(" ")}>
+    <ul
+      className={[styles["filter"], className].join(" ")}
+      onClick={(e) => onClick(e)}
+    >
       <li key={"id"} className={styles["filter__name"]}>
-        <button className={styles["filter__btn"]}>
+        <button className={styles["filter__btn"]} data-id>
           <span className={styles["filter__id-text"]}>ID</span>
           <span className={styles["filter__arrow"]}></span>
         </button>
       </li>
       <li key={"name"} className={styles["filter__name"]}>
-        <button className={styles["filter__btn"]}>
+        <button className={styles["filter__btn"]} data-name>
           <span className={styles["filter__name-text"]}>
             Фамилия Имя Отчество
           </span>
@@ -25,7 +29,7 @@ export function FilterComponent({ className }: IFilterComponentProps) {
         </button>
       </li>
       <li key={"date"} className={styles["filter__name"]}>
-        <button className={styles["filter__btn"]}>
+        <button className={styles["filter__btn"]} data-create>
           <span className={styles["filter__date-text"]}>
             Дата и время создания
             <span className={styles["filter__arrow"]}></span>
@@ -33,7 +37,7 @@ export function FilterComponent({ className }: IFilterComponentProps) {
         </button>
       </li>
       <li key={"change"} className={styles["filter__name"]}>
-        <button className={styles["filter__btn"]}>
+        <button className={styles["filter__btn"]} data-change>
           <span className={styles["filter__change-text"]}>
             Последние изменения
             <span className={styles["filter__arrow"]}></span>

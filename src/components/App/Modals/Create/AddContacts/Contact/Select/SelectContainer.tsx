@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import { selectItemHide } from "./animation/hide";
-import { selectItemShow } from "./animation/show";
+import React, { useState } from "react";
 
 import { SelectComponent } from "./SelectComponent";
 
@@ -33,12 +30,9 @@ export function Select({ className }: ISelectProps) {
     }
   }
 
-  useEffect(() => {
-    isOpen ? selectItemShow() : selectItemHide();
-  }, [isOpen]);
-
   return (
     <SelectComponent
+      isOpen={isOpen}
       onClick={HandleClick}
       activeField={activeField}
       className={className}

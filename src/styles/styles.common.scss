@@ -12,14 +12,31 @@ html {
 }
 
 body {
+  position: relative;
   font-family: "Open Sans";
   max-width: 1366px;
   min-width: 320px;
   margin: 0 auto;
   color: $black33;
+  overflow-x: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    pointer-events: none;
+  }
 
   &.open {
     overflow: hidden;
+  }
+
+  &.loading::after {
+    pointer-events: visible;
   }
 }
 
