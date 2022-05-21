@@ -7,7 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import { rootReducer } from "./store/rootReducer";
-import { getUsers } from "./store/users/actions";
+import { getUsers } from "./store/get/actions";
 
 import { App } from "./components/App";
 
@@ -19,9 +19,9 @@ window.addEventListener("load", () => {
 
   if (!wrapper) return null;
 
-  setTimeout(() => {
+  // setTimeout(() => {
     store.dispatch(getUsers());
-  }, 5000);
+  // }, 5000);
 
   const root = ReactDOM.createRoot(wrapper);
   root.render(

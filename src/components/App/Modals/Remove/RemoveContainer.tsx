@@ -2,17 +2,17 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import { useDispatch } from "react-redux";
-import { deleteUser } from "../../../../store/users/actions";
+import { deleteUser } from "../../../../store/delete/actions";
 
 import { useNavigate } from "react-router-dom";
 
-import { useSerachUser } from "../searchUser";
+import { useSerachUser } from "../useSearchUser";
 
 import { ModalRemoveComponent } from "./RemoveComponent";
 
 export function ModalRemove() {
-  const dispatch = useDispatch();
   const modalPortal = document.querySelector("#react-modal");
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSerachUser();
 

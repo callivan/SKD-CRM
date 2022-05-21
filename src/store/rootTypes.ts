@@ -1,7 +1,3 @@
-import { UserStateType } from "./user/types";
-import { UsersActionType } from "./users/types";
+import { UsersActionType } from "./get/types";
 
-export type StateType = {
-  users: UsersActionType;
-  user: UserStateType
-};
+export type StateType = UsersActionType;

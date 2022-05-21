@@ -1,0 +1,163 @@
+@import "../../../../../styles/var.common.scss";
+
+@mixin filter-fotn {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  text-align: left;
+  letter-spacing: 0.015em;
+}
+
+.filter {
+  display: grid;
+  grid-template-columns:
+    minmax(60px, 70px) minmax(218px, 233px)
+    minmax(98px, 158px) minmax(98px, 146px) minmax(128px, 149px) minmax(85px, 185px);
+  align-items: end;
+  min-width: 728px;
+  padding-inline: 20px;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns:
+      minmax(70px, 81px) minmax(233px, 370px)
+      minmax(158px, 175px) minmax(146px, 173px) minmax(149px, 160px) 185px;
+  }
+
+  @media screen and (min-width: 1366px) {
+    grid-template-columns:
+      81px 370px
+      175px 173px 160px 185px;
+  }
+
+  &__name {
+    grid-column: span 1;
+  }
+
+  &__btn {
+    pointer-events: visible;
+    display: flex;
+    gap: 2px;
+    align-items: center;
+  }
+
+  &__btn.active > &__id-text,
+  &__btn.active > &__name-text,
+  &__btn.active > &__date-text,
+  &__btn.active > &__change-text {
+    color: $firm98;
+  }
+
+  &__btn:disabled &__arrow::before {
+    border-color: $greyC8;
+  }
+
+  &__btn:disabled &__arrow::after {
+    background-color: $greyC8;
+  }
+
+  &__btn:disabled &__alphabet {
+    color: $greyC8;
+  }
+
+  &__btn:focus-visible {
+    outline: none;
+  }
+
+  &__btn:hover &__id-text,
+  &__btn:hover &__name-text,
+  &__btn:hover &__date-text,
+  &__btn:hover &__change-text {
+    color: $black33;
+  }
+
+  &__btn:focus-visible &__id-text,
+  &__btn:focus-visible &__name-text,
+  &__btn:focus-visible &__date-text,
+  &__btn:focus-visible &__change-text {
+    color: $black33;
+  }
+
+  &__btn:hover &__alphabet,
+  &__btn:hover &__arrow {
+    opacity: 1;
+  }
+
+  &__btn:focus-visible &__alphabet,
+  &__btn:focus-visible &__arrow {
+    opacity: 1;
+  }
+
+  &__name,
+  &__id-text,
+  &__name-text,
+  &__date-text,
+  &__change-text {
+    @include filter-fotn;
+    pointer-events: none;
+  }
+
+  &__alphabet {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    color: $firm98;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  &__name,
+  &__id-text,
+  &__name-text,
+  &__date-text,
+  &__change-text {
+    color: $greyB0;
+    transition: color 0.3s ease-in-out;
+  }
+
+  &__date-text,
+  &__change-text {
+    width: 82px;
+
+    @media screen and (min-width: 1058px) {
+      width: auto;
+    }
+
+    & > span {
+      left: 2px;
+    }
+  }
+
+  &__arrow {
+    pointer-events: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    width: 8px;
+    height: 8px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 4px;
+      height: 4px;
+      border-top: 1px solid $firm98;
+      border-left: 1px solid $firm98;
+      transform: rotate(45deg);
+      transition: border-color 0.3s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 1px;
+      height: 8px;
+      background-color: $firm98;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+}

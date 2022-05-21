@@ -1,8 +1,7 @@
 import React, { ReactNode } from "react";
 
 import { Outlet } from "react-router-dom";
-
-import { Clients } from "./Clients";
+import { Client } from "./Client";
 import { Header } from "./Header";
 
 interface ILayuotComponentProps {
@@ -13,10 +12,10 @@ export function LayoutComponent({ children }: ILayuotComponentProps) {
   return (
     <>
       <Header />
-      <Clients>
+      <Client>
         {children}
         <Outlet />
-      </Clients>
+      </Client>
     </>
   );
 }

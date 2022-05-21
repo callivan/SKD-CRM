@@ -5,15 +5,9 @@ import { Cross } from "../../Buttons/Cross";
 
 import styles from "./remove.scss";
 
-interface IModalRemoveComponentProps {
-  className?: string;
-}
-
-export function ModalRemoveComponent({
-  className,
-}: IModalRemoveComponentProps) {
+export function ModalRemoveComponent() {
   return (
-    <div className={[styles["remove-modal"], className].join(" ")}>
+    <div className={styles["remove-modal"]}>
       <Cross
         className={styles["remove-modal__cross"]}
         ariaLabel="Закрыть модальное окно удаления клиента"

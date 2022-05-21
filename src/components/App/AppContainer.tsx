@@ -7,7 +7,7 @@ import { AppComponent } from "./AppComponent";
 
 export function App() {
   const loading = useSelector<StateType, boolean>(
-    (state) => state.users.loading
+    (state) => state.loading
   );
 
   useEffect(() => {
