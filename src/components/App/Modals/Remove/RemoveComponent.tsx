@@ -1,13 +1,14 @@
 import React from "react";
-
 import { Action } from "../../Buttons/Action";
 import { Cross } from "../../Buttons/Cross";
+import Loader from "../../Loader";
 
 import styles from "./remove.scss";
 
-export function ModalRemoveComponent() {
+export function ModalRemoveComponent({ showLoader }: { showLoader: boolean }) {
+  
   return (
-    <div className={styles["remove-modal"]}>
+    <>
       <Cross
         className={styles["remove-modal__cross"]}
         ariaLabel="Закрыть модальное окно удаления клиента"
@@ -19,9 +20,11 @@ export function ModalRemoveComponent() {
       <div className={styles["remove-modal__btns"]}>
         <Action
           className="remove-modal__remove"
-          children="Удалить"
           ariaLabel="Подтвердить удаление клиента"
-        />
+        >
+          {showLoader && <Loader type="small" />}
+          Удалить
+        </Action>
         <button
           className={styles["remove-modal__cancel"]}
           aria-label="Отменить удаление клиента"
@@ -29,6 +32,6 @@ export function ModalRemoveComponent() {
           Отмена
         </button>
       </div>
-    </div>
+    </>
   );
 }

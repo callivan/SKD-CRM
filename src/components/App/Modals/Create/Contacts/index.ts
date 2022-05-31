@@ -1,1 +1,1 @@
-export * from './Contacts';
+export * from './ContactsContainer';

@@ -1,5 +1,4 @@
 import { Reducer } from "@reduxjs/toolkit";
-import { USER_DELETE } from "./delete/types";
 
 import { USERS_FILTERED } from "./filter/types";
 
@@ -9,12 +8,12 @@ import {
   USERS_REQUEST,
   USERS_REQUEST_ERROR,
   USERS_REQUEST_SUCCESS,
-} from "./get/types";
+} from "./request/types";
 
 const initialUsers: UsersActionType = {
   loading: true,
   data: null,
-  error: null,
+  error: { status: null, message: null },
 };
 
 export const rootReducer: Reducer<UsersActionType, UsersActionsTypes> = (
@@ -25,18 +24,22 @@ export const rootReducer: Reducer<UsersActionType, UsersActionsTypes> = (
     case USERS_REQUEST:
       return state;
     case USERS_REQUEST_ERROR:
-      return { ...state, loading: false, error: action.error };
+      return {
+        ...state,
+        loading: false,
+        error: { status: action.status, message: action.message },
+      };
     case USERS_REQUEST_SUCCESS:
       return {
         ...state,
         loading: false,
-        error: null,
+        error: { status: null, message: null },
         data: action.data,
       };
     case USERS_FILTERED:
       return {
         ...state,
-        data: action.data,
+        data: action.users,
       };
     default:
       return state;

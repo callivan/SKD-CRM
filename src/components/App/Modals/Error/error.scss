@@ -1,0 +1,40 @@
+@import "../../../../styles/var.common.scss";
+
+.error-modal {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 100%;
+  min-width: 728px;
+  height: max-content;
+  min-height: 300px;
+  background-color: $white;
+  opacity: 0;
+  transform: translateY(-100px);
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    color: $redEF;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.4rem;
+      line-height: 3.3rem;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.9rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+  
+}

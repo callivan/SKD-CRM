@@ -73,6 +73,32 @@
     transition: color 0.3s ease-in-out;
   }
 
+  //Добавление класса disabled
+
+  body.disabled &__btn,
+  &__btn:disabled {
+    pointer-events: none;
+  }
+
+  body.disabled &__btn > &__btn-text,
+  &__btn:disabled > &__btn-text {
+    color: $greyC8;
+  }
+
+  body.disabled &__btn > &__btn-icon,
+  &__btn:disabled > &__btn-icon {
+    box-shadow: inset 0 0 0 2px $greyC8;
+  }
+
+  body.disabled &__btn > &__btn-icon::before,
+  body.disabled &__btn > &__btn-icon::after,
+  &__btn:disabled > &__btn-icon::before,
+  &__btn:disabled > &__btn-icon::after {
+    background-color: $greyC8;
+  }
+
+  //UI-эффекты
+
   &__btn:hover > &__btn-icon,
   &__btn:focus-visible > &__btn-icon {
     background-color: $firm98;
@@ -104,22 +130,5 @@
 
   &__btn:active > &__btn-text {
     color: $firm80;
-  }
-
-  &__btn:disabled {
-    pointer-events: none;
-  }
-
-  &__btn:disabled > &__btn-text {
-    color: $greyC8;
-  }
-
-  &__btn:disabled > &__btn-icon {
-    box-shadow: inset 0 0 0 2px $greyC8;
-  }
-
-  &__btn:disabled > &__btn-icon::before,
-  &__btn:disabled > &__btn-icon::after {
-    background-color: $greyC8;
   }
 }

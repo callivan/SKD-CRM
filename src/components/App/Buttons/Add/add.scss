@@ -25,18 +25,25 @@
     transition: color 0.3s ease-in-out;
   }
 
-  &:disabled {
+  //Добавление класса disabled
+
+  &:disabled,
+  body.disabled & {
     pointer-events: none;
     box-shadow: inset 0 0 0 1px $greyD1;
   }
 
-  &:disabled > &__icon > svg > path {
+  &:disabled > &__icon > svg > path,
+  body.disabled & > &__icon > svg > path {
     fill: $greyD1;
   }
 
-  &:disabled > &__text {
+  &:disabled > &__text,
+  body.disabled & > &__text {
     color: $greyD1;
   }
+
+  //UI-эффекты
 
   &:hover {
     background-color: $firmB8;

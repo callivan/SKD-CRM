@@ -66,10 +66,11 @@
 
   &__list {
     position: absolute;
+    left: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    width: 110px;
+    width: 100%;
     background-color: $greyF6;
     border: 1px solid $greyC8;
     border-top: none;
@@ -94,7 +95,11 @@
     padding-block: 5px;
     padding-inline: 12px 19px;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
 
+  //UI-эффекты
+
+  &__item-btn {
     &:hover {
       background-color: $greyEB;
     }

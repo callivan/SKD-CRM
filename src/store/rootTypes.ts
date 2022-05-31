@@ -1,3 +1,3 @@
-import { UsersActionType } from "./get/types";
+import { UsersActionType } from "./request/types";
 
 export type StateType = UsersActionType;

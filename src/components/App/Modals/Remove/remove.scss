@@ -7,9 +7,12 @@
   justify-content: center;
   flex-direction: column;
   width: 300px;
+  height: max-content;
   min-height: 125px;
   background-color: $white;
   padding: 22px 13px 29px 13px;
+  opacity: 0;
+  transform: translateY(-100px);
 
   @media screen and (min-width: 768px) {
     width: 450px;
@@ -53,6 +56,13 @@
     flex-direction: column;
   }
 
+  &__remove {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+  }
+
   &__cancel {
     font-weight: 400;
     font-size: 1.2rem;
@@ -60,7 +70,21 @@
     text-decoration: underline;
     width: max-content;
     transition: color 0.3s ease-in-out, outline 0.3s ease-in-out;
+  }
 
+  //Добавление класса disabled
+
+  body.disabled &__remove {
+    background-color: $greyC8;
+  }
+
+  body.disabled &__cancel {
+    color: $greyC8;
+  }
+
+  //UI-эффекты
+
+  &__cancel {
     &:hover {
       color: $firm98;
     }

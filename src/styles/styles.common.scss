@@ -16,6 +16,7 @@ body {
   font-family: "Open Sans";
   max-width: 1366px;
   min-width: 320px;
+  min-height: 100vh;
   margin: 0 auto;
   color: $black33;
   overflow-x: hidden;
@@ -63,19 +64,18 @@ a {
 
 #react-modal {
   display: flex;
-  align-items: center;
   justify-content: center;
   pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100vh;
+  position: absolute;
+  inset: 0;
   padding: 10px;
   transition: background-color 0.3s ease-in-out;
 
   body.open & {
     pointer-events: visible;
     background-color: $black99;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }

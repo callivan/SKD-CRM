@@ -44,28 +44,36 @@
     }
   }
 
-  &__input:hover {
-    border-color: $firm98;
-  }
-
-  &__input:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 1px $firm98;
-  }
-
-  &__input:focus-visible + &__placeholder {
-    font-size: 1rem;
-    line-height: 1.3rem;
-    transform: translateY(-20px);
-  }
-
   &__input:not(:placeholder-shown) + &__placeholder {
     font-size: 1rem;
     line-height: 1.3rem;
     transform: translateY(-20px);
   }
 
-  &__input.invalid {
+  &__input:invalid {
     border-color: $redF7;
+  }
+
+  //Добавление класса disabled
+
+  body.disabled & {
+    pointer-events: none;
+  }
+
+  //UI-эффекты
+
+  &__input:hover {
+    border-color: $firm98;
+  }
+
+  &__input:focus-visible {
+    outline: none;
+    border-color: $firm98;
+  }
+
+  &__input:focus-visible + &__placeholder {
+    font-size: 1rem;
+    line-height: 1.3rem;
+    transform: translateY(-20px);
   }
 }

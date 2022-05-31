@@ -1,13 +1,17 @@
 @import "../../../../styles/var.common.scss";
 
 .create-modal {
+  grid-column: span 1;
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: $white;
   width: 300px;
+  height: max-content;
   min-height: 300px;
   padding-block: 24px 27px;
+  opacity: 0;
+  transform: translateY(-100px);
 
   @media screen and (min-width: 768px) {
     width: 450px;
@@ -46,17 +50,32 @@
     font-weight: 700;
     font-size: 1.8rem;
     line-height: 2.4rem;
+
+    & > span {
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      color: $greyB0;
+    }
   }
 
-  &__id {
-    font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    color: $greyB0;
-  }
+  &__errors {
+    position: relative;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-block: 8px;
 
-  &__contacts {
-    margin-bottom: 25px;
+    & > span {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.4rem;
+      text-align: center;
+      color: $redF0;
+      max-width: 255px;
+    }
   }
 
   &__btns {
@@ -66,13 +85,38 @@
     flex-direction: column;
   }
 
+  &__btn-save {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+  }
+
   &__btn-cancel {
     font-weight: 400;
     font-size: 1.2rem;
     line-height: 1.6rem;
     text-decoration: underline;
     transition: color 0.3s ease-in-out, outline 0.3s ease-in-out;
+  }
 
+  //Добавление класса disabled
+
+  body.disabled & {
+    pointer-events: none;
+  }
+
+  body.disabled &__btn-save {
+    background-color: $greyC8;
+  }
+
+  body.disabled &__btn-cancel {
+    color: $greyC8;
+  }
+
+  //UI-эффекты
+
+  &__btn-cancel {
     &:hover {
       color: $firm98;
     }
