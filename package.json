@@ -6,7 +6,7 @@
   "private": true,
   "browserslist": "> 0.25%, not dead",
   "scripts": {
-    "start": "concurrently \"webpack-dev-server --config ./webpack/webpack.dev.config.js\" \"json-server -w ./src/server/db.json -p 3001\""
+    "start": "concurrently \"npm i\" \"webpack-dev-server --config ./webpack/webpack.dev.config.js\" \"json-server -w ./src/server/db.json -p 3001\""
   },
   "repository": {
     "type": "git",
